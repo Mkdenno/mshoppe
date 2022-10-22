@@ -1,13 +1,30 @@
+import React, { useState, useEffect } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 import { Route, Routes } from "react-router-dom";
 
-import Search from './components/Search';
+import Home from "./components/HomePage/Home";
 
-function App() {
+export default function App() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    // auto-login
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
+
   return (
-    <div className="App">
-     <Search/>
+    <div>
+      {/* <Navbar setUser={setUser} user={user} /> */}
+      <Routes>
+        <Route path="/" element={<Home user={user} />} />
+        
+        
+      </Routes>
     </div>
   );
 }
-
-export default App;
