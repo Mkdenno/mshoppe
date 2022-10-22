@@ -3,28 +3,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import { Route, Routes } from "react-router-dom";
 
-import Home from "./components/HomePage/Home";
 
-export default function App() {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    // auto-login
-    fetch("/me").then((r) => {
-      if (r.ok) {
-        r.json().then((user) => setUser(user));
-      }
-    });
-  }, []);
+import Navbar from './components/Navbar';
+import Home from "./components/HomePage/Home"
+function App() {
 
   return (
-    <div>
-      {/* <Navbar setUser={setUser} user={user} /> */}
-      <Routes>
-        <Route path="/" element={<Home user={user} />} />
-        
-        
-      </Routes>
+    <div className="App">
+     <Navbar/>
+     <Home/>
+     
     </div>
   );
 }
+export default App;
