@@ -1,0 +1,29 @@
+.footerthings{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.Newsletter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 1.5rem;
+}
+.inputform{
+    display: flex;
+    justify-content: center;    
+    margin: 1rem;
+    width: 50%;
+}
+.inputform input{
+    padding: 8px;
+    width: 100%;
+    border: none;
+    
+}
+.inputform button{
+    color: white;
+    background-color: green;
+    border: none;
+}
