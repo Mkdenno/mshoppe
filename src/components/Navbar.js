@@ -6,7 +6,16 @@ const colorTxt = {
   color: "white",
   textDecoration: "none",
 };
-const NavBar = () => {
+const NavBar = ({setUser,user}) => {
+
+  const handleLogoutButton = () => {
+    fetch("/logout", { method: "DELETE" }).then((r) => {
+      if (r.ok) {
+        setUser(null);
+      }
+    });
+    // console.log("hi")
+  };
   return (
     <nav className=" container justify-around navbar navbar-expand-lg bg-light">
       <div className="container-fluid">
@@ -58,10 +67,30 @@ const NavBar = () => {
           </form>
         </div>
       </div>
+      {
+               user? (
       <div className="my-4 btn">
         <button
           type="button"
           className="btn btn-lg"
+          style={{
+            border: "none",
+            color: "white",
+            backgroundColor: "red",
+            fontSize: "15px",
+            fontWeight: "900",
+          }}
+       onClick={handleLogoutButton}
+        >
+            Logout
+        </button>
+      </div>
+                   ):
+                   (
+      <div className="my-4 btnb">
+        <button
+          type="button"
+          className="btn btn-lg "
           style={{
             border: "none",
             color: "white",
@@ -74,8 +103,7 @@ const NavBar = () => {
             Login
           </Link>
         </button>
-      </div>
-      <div className="my-4 btn">
+
         <button
           type="button"
           className="btn btn-lg"
@@ -92,6 +120,8 @@ const NavBar = () => {
           </Link>
         </button>
       </div>
+                     )
+                    }
       <span className="cartIcon">
         <AiOutlineShoppingCart />
       </span>
