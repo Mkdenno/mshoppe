@@ -2,6 +2,7 @@ import React from "react";
 import image from "./home-image1.jpg";
 import { Link } from "react-router-dom";
 import './home.css';
+import Search from "../Search";
 export default function Home({ user }) {
   const txt = {
     color: "red",
@@ -48,7 +49,10 @@ export default function Home({ user }) {
             <img src={image} className="img-fluid" alt="meet -up" />
           </div>
         </div>
+
       </div>
+      <Search/>
+      {/* <Route path="/search" element={<Search />} /> */}
     </div>
   );
 }
