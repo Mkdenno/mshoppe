@@ -1,25 +1,30 @@
 import "./form.css";
 import { useState } from "react";
 
-function Login() {
-  const [name, setname] = useState("");
+function Login({setUser}) {
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("signup", {
+
+    const loginInput = {
+      username,
+      password,
+    };
+
+    fetch("/login", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "content-type": "application/json",
       },
-      body: JSON.stringify({
-        name,
-        password,
-      }),
-    })
-      .then((r) => r.json())
-      .then((data) => console.log(data));
-  }
+      body: JSON.stringify(loginInput),
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      }
+    });
+  };
 
   return (
     <div className="form">
@@ -30,8 +35,8 @@ function Login() {
           <input
             type="text"
             id="name"
-            value={name}
-            onChange={(e) => setname(e.target.value)}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
           <label htmlFor="password">Password:</label>
           <input
@@ -41,7 +46,7 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
           <button
-            type="button"
+            type="submit"
             className="btn btn-lg"
             style={{
               border: "none",
