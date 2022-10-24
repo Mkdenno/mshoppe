@@ -7,13 +7,21 @@ import Navbar from "./components/Navbar";
 import Home from "./components/HomePage/Home";
 import Search from "./components/Search";
 import Footer from "./components/Footer";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <Home />
-      <Search />
-      <Footer/>
+      <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
+      </Routes>
+      
+      <Footer />
+
+
     </div>
   );
 }
