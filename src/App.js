@@ -9,6 +9,8 @@ import Search from "./components/Search";
 import Footer from "./components/Footer";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import About from "./components/About";
+
 function App() {
   return (
     <div className="App">
@@ -18,7 +20,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       </Routes>
-      
+      <About/>
       <Footer />
 
 
