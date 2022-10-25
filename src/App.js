@@ -24,12 +24,26 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
-      <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Signup />} />
-      </Routes>
+      <Navbar setUser={setUser} user={user} />
+      {
+        user?
+        (
+          <Routes>
+
+<Route path="/" element={<Home user={user} />} />
+
+          </Routes>
+
+        ):
+        (
+
+          <Routes>
+          <Route path="/login" element={<Login setUser={setUser} />} />
+          <Route path="/signup" element={<Signup />} />
+          </Routes>
+        )
+      }
+
       <About/>
       <Footer />
 
