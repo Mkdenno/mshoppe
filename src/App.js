@@ -8,6 +8,8 @@ import Home from "./components/HomePage/Home";
 import Footer from "./components/Footer";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import About from "./components/About";
+
 function App() {
   const [user, setUser] = useState(null);
 
@@ -21,26 +23,14 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <Navbar user={user} setUser={setUser}/>
-      <main>
-      {user ? (
-        <Routes>
-        <Route path="/" element={<Home user={user} />} />
-        </Routes>
-          
-
-      ) : (
-        <Routes>
-
-          <Route path="/login" element={<Login setUser={setUser} />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/" element={<Home />} />
-        </Routes>
-        
-      )}
-      </main>
-      
+    <div className="App">
+      <Navbar />
+      <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
+      </Routes>
+      <About/>
       <Footer />
 
 

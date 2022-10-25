@@ -62,6 +62,7 @@ export default function Home({ user }) {
   else{
     return (
       <div>
+        <div>
         <div className=" container container-fluid my-1  p-5 ">
           <div className="row">
             <div className="col-5 col-lg-6 pt-3">
@@ -102,7 +103,6 @@ export default function Home({ user }) {
         <Search/>
         {/* <Route path="/search" element={<Search />} /> */}
       </div>
-    );
-  }
-  
-}
+    </div>
+  );
+}}
