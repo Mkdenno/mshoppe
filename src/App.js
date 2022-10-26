@@ -12,12 +12,12 @@ import About from "./components/About";
 
 function App() {
   const [user, setUser] = useState(null);
-
+  const token =localStorage.getItem("jwt");
   useEffect(() => {
     // auto-login
-    fetch("/me").then((r) => {
+    fetch("http://localhost:3000/profile").then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user));
+        r.json().then((user) => console.log(user));
       }
     });
   }, []);
@@ -30,7 +30,7 @@ function App() {
         (
           <Routes>
 
-<Route path="/" element={<Home user={user} />} />
+<Route exact path="/" element={<Home user={user} />} />
 
           </Routes>
 
@@ -39,12 +39,17 @@ function App() {
 
           <Routes>
           <Route path="/login" element={<Login setUser={setUser} />} />
-          <Route path="/signup" element={<Signup />} />
+          <Route path="/signup" element={<Signup setUser={setUser} />} />
+          <Route exact path="/" element={<Home />} />
+
           </Routes>
         )
       }
+     <Routes>
+     <Route exact path="/about" element={<About/>} />
 
-      <About/>
+     </Routes>
+      
       <Footer />
 
 

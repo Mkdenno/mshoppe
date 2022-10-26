@@ -1,12 +1,14 @@
 import "./form.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  const navigate =useNavigate()
   const [errors, setErrors] = useState([]);
-  console.log(errors);
+  //console.log(errors);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,19 +18,24 @@ function Signup() {
       password_confirmation: passwordConfirmation,
     };
 
-    fetch("/signup", {
+    fetch("http://localhost:3000/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(inputData),
+      body: JSON.stringify({
+        user:inputData}),
     }).then((response) => {
       //  if(r.ok){
       //   r.json()
       //   .then((user)=> setUser(user))
       //  }
       if (response.ok) {
-        response.json().then((user) => console.log(user));
+        response.json().then((user) => {
+          console.log(user);
+          navigate('/login');
+          // localStorage.setItem("jwt",user.jwt);
+        });
       } else {
         response.json().then((errorData) => setErrors(errorData.errors));
       }
@@ -37,15 +44,15 @@ function Signup() {
     setPassword("");
     setPasswordConfirmation("");
   };
-  {
-    errors.length > 0 && (
-      <ul style={{ color: "red"}}>
-        {errors.map((error) => (
-          <li  key={error}>{error}</li>
-        ))}
-      </ul>
-    );
-  }
+  // {
+  //   errors.length > 0 && (
+  //     <ul style={{ color: "red"}}>
+  //       {errors.map((error) => (
+  //         <li  key={error}>{error}</li>
+  //       ))}
+  //     </ul>
+  //   );
+  // }
 
   return (
     <div className="form">
