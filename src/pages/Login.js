@@ -1,9 +1,11 @@
 import "./form.css";
 import { useState } from "react";
+import { useNavigate} from "react-router-dom";
 
 function Login({setUser}) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate=useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -13,15 +15,20 @@ function Login({setUser}) {
       password,
     };
 
-    fetch("/login", {
+    fetch("http://localhost:3000/login", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(loginInput),
+      body: JSON.stringify({
+        user:loginInput
+      }),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user));
+        r.json().then((user) => {
+          setUser(user);
+          navigate('/');
+        });
       }
     });
   };

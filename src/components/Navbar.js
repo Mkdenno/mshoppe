@@ -1,19 +1,23 @@
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import "./navbar.css";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const colorTxt = {
   color: "white",
   textDecoration: "none",
 };
 const NavBar = ({setUser,user}) => {
+  const navigate=useNavigate();
 
   const handleLogoutButton = () => {
-    fetch("/logout", { method: "DELETE" }).then((r) => {
-      if (r.ok) {
-        setUser(null);
-      }
-    });
+    setUser(null);
+    navigate('/');
+    // fetch("/logout", { method: "DELETE" }).then((r) => {
+    //   if (r.ok) {
+    //     setUser(null);
+    //   }
+    // });
     // console.log("hi")
   };
   return (
