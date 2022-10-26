@@ -42,6 +42,14 @@ const Footer = () => {
           <li>Iphone</li>
           </ul>
         </div>
+        <div>
+        <h5>Primary Contact</h5>
+        <ul>
+          <li>Email: mshpper22@gmail.com</li>
+
+          <li>Phone: +254798210671</li>
+          </ul>
+        </div>
         </div>
     </div>
   )
