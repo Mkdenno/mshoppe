@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import image from "./home-image1.jpg";
 import { Link } from "react-router-dom";
 import "./home.css";
@@ -123,15 +123,15 @@ export default function Home({ user, amazon, ebay, hideContent, setHideContent }
   } else {
     return (
       <>
-        <h1>Amazon</h1>
+        <h1 style={{marginStart: "5rem"}} >Amazon</h1>
 
         <div className="prods">
           {amazon.map((product) => {
-            return <Amazon key={product.asin} product={product} />;
+            return <Amazon key={product.product_id} product={product} />;
           })}
         </div>
 
-        <h1>Ebay</h1>
+        <h1 style={{marginStart: "5rem"}}>Ebay</h1>
 
         <div className="prods">
           {ebay.map((product) => {

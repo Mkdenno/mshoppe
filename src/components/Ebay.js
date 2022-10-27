@@ -12,10 +12,11 @@ function Ebay({product}) {
           <p>Price: {name}</p>
 
           <p>Price: {price}</p>
-        </div>
-        <div className="searchbtn">
+          <div className="searchbtn">
             <button>ORDER</button>
           </div>
+        </div>
+
       </div>
     </>
   );

@@ -24,7 +24,7 @@ function App() {
   const amazonOptions = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "32f8f29c8bmsh4f427a649a705d0p15fff3jsn83663d512f81",
+      "X-RapidAPI-Key": "5970fc4886msh928284f8d99bbbfp184ca1jsn8771bf837182",
       "X-RapidAPI-Host": "amazon23.p.rapidapi.com",
     },
   };
@@ -46,7 +46,7 @@ function App() {
       .then((data) => {
         setAmazon(data.result);
         console.log(data.result);
-      });
+      }).catch((err) => console.log(err));
 
     fetch(
       `https://ebay-data-scraper.p.rapidapi.com/products?page_number=1&product_name=${searchTerm}%20ink&country=canada`,

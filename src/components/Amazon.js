@@ -12,10 +12,11 @@ const Amazon = ({ product }) => {
 
           <p >Price: {price.current_price}</p>
           <p >Rating: {reviews.rating}</p>
-        </div>
-        <div className="searchbtn">
+          <div className="searchbtn">
             <button>ORDER</button>
           </div>
+        </div>
+
       </div>
     </>
   );
