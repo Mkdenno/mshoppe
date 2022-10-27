@@ -23,7 +23,7 @@ export default function Home({ user }) {
               </h1>
             </div>
             <div className="mb-3 paragraph">
-              <p className="">We have products from different sites such as Amazon, Alibaba, E-bay and spotify</p>
+              <p className="t">We have products from different sites such as Amazon, Alibaba, E-bay and spotify</p>
             </div>
 
             <div className="my-4 btn">
