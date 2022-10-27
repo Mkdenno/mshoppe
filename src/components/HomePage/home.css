@@ -8,3 +8,10 @@
 .btn button{
     margin-right: 1rem 0;
 }
+
+.prods {
+    margin: 0 5rem;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}

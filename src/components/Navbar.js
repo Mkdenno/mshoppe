@@ -7,12 +7,18 @@ const colorTxt = {
   color: "white",
   textDecoration: "none",
 };
-const NavBar = ({setUser,user}) => {
-  const navigate=useNavigate();
+const NavBar = ({
+  setUser,
+  user,
+  searchTerm,
+  setSearchTerm,
+  handleOnSubmit,
+}) => {
+  const navigate = useNavigate();
 
   const handleLogoutButton = () => {
     setUser(null);
-    navigate('/');
+    navigate("/");
     // fetch("/logout", { method: "DELETE" }).then((r) => {
     //   if (r.ok) {
     //     setUser(null);
@@ -31,9 +37,7 @@ const NavBar = ({setUser,user}) => {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="#">
-                <Link to="/">
-                  Home
-                </Link>
+                <Link to="/">Home</Link>
               </a>
             </li>
             {/* <li className="nav-item">
@@ -43,9 +47,7 @@ const NavBar = ({setUser,user}) => {
                 </Link>              </a>
             </li> */}
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Order
-              </a>
+              <Link to="/search">Order</Link>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="about">
@@ -58,12 +60,14 @@ const NavBar = ({setUser,user}) => {
               </a>
             </li>
           </ul>
-          <form className="d-flex" role="search">
+          <form className="d-flex" role="search" onSubmit={handleOnSubmit}>
             <input
               className="form-control me-2"
               type="search"
               placeholder="Search"
               aria-label="Search"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
             />
             <button className="btn btn-outline-success" type="submit">
               Search
@@ -71,61 +75,58 @@ const NavBar = ({setUser,user}) => {
           </form>
         </div>
       </div>
-      {
-               user? (
-      <div className="my-4 btn">
-        <button
-          type="button"
-          className="btn btn-lg"
-          style={{
-            border: "none",
-            color: "white",
-            backgroundColor: "red",
-            fontSize: "15px",
-            fontWeight: "900",
-          }}
-       onClick={handleLogoutButton}
-        >
+      {user ? (
+        <div className="my-4 btn">
+          <button
+            type="button"
+            className="btn btn-lg"
+            style={{
+              border: "none",
+              color: "white",
+              backgroundColor: "red",
+              fontSize: "15px",
+              fontWeight: "900",
+            }}
+            onClick={handleLogoutButton}
+          >
             Logout
-        </button>
-      </div>
-                   ):
-                   (
-      <div className="my-4 btnb">
-        <button
-          type="button"
-          className="btn btn-lg "
-          style={{
-            border: "none",
-            color: "white",
-            backgroundColor: "#00BFFF",
-            fontSize: "15px",
-            fontWeight: "900",
-          }}
-        >
-          <Link to="/login" style={colorTxt}>
-            Login
-          </Link>
-        </button>
+          </button>
+        </div>
+      ) : (
+        <div className="my-4 btnb">
+          <button
+            type="button"
+            className="btn btn-lg "
+            style={{
+              border: "none",
+              color: "white",
+              backgroundColor: "#00BFFF",
+              fontSize: "15px",
+              fontWeight: "900",
+            }}
+          >
+            <Link to="/login" style={colorTxt}>
+              Login
+            </Link>
+          </button>
 
-        <button
-          type="button"
-          className="btn btn-lg"
-          style={{
-            border: "none",
-            color: "white",
-            backgroundColor: "#00BFFF",
-            fontSize: "15px",
-            fontWeight: "900",
-          }}
-        >
-          <Link to="/signup" style={colorTxt}>
-            Register
-          </Link>
-        </button>
-      </div>
-                     )
-                    }
+          <button
+            type="button"
+            className="btn btn-lg"
+            style={{
+              border: "none",
+              color: "white",
+              backgroundColor: "#00BFFF",
+              fontSize: "15px",
+              fontWeight: "900",
+            }}
+          >
+            <Link to="/signup" style={colorTxt}>
+              Register
+            </Link>
+          </button>
+        </div>
+      )}
       <span className="cartIcon">
         <AiOutlineShoppingCart />
       </span>
