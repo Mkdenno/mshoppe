@@ -21,7 +21,7 @@ const NavBar = ({setUser,user}) => {
     // console.log("hi")
   };
   return (
-    <nav className=" container justify-around navbar navbar-expand-lg bg-light">
+    <nav className=" justify-around navbar navbar-expand-lg bg-light">
       <div className="container-fluid">
         <h3>
           <span className="text-danger">MoS</span>hopper
