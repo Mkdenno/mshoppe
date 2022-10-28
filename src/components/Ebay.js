@@ -9,7 +9,7 @@ function Ebay({product}) {
       <div className="card-product card">
         <img src={thumbnail} alt="Phone" />
         <div>
-          <p>Price: {name}</p>
+          <p>Name: {name}</p>
 
           <p>Price: {price}</p>
           <div className="searchbtn">

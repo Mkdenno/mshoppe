@@ -46,9 +46,9 @@ const NavBar = ({
                   Services
                 </Link>              </a>
             </li> */}
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link to="/search">Order</Link>
-            </li>
+            </li> */}
             <li className="nav-item">
               <a className="nav-link" href="about">
                 About Us
