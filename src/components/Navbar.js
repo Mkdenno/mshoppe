@@ -1,4 +1,3 @@
-import { AiOutlineShoppingCart } from "react-icons/ai";
 import "./navbar.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -27,35 +26,36 @@ const NavBar = ({
     // console.log("hi")
   };
   return (
-    <nav className=" justify-around navbar navbar-expand-lg bg-light">
-      <div className="container-fluid">
-        <h3>
-          <span className="text-danger">MoS</span>hopper
-        </h3>
+    <nav className="navmargin navbar navbar-expand-lg ">
+      <div className=" container-fluid shopper">
+        <div>
+          <h3>
+            <span className="  text-danger">MoS</span>hopper
+          </h3>
+        </div>
 
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div
+          className=" listlinks collapse navbar-collapse "
+          id="navbarSupportedContent"
+        >
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <span className="nav-link active" aria-current="page">
                 <Link to="/">Home</Link>
+              </span>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#search">
+                Services
               </a>
             </li>
-            {/* <li className="nav-item">
-              <a className="nav-link" href="services">
-              <Link to="/search">
-                  Services
-                </Link>              </a>
-            </li> */}
             <li className="nav-item">
-              <Link to="/search">Order</Link>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="about">
+              <a className="nav-link" href="#about">
                 About Us
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="#contact">
                 Contact Us
               </a>
             </li>
@@ -93,10 +93,10 @@ const NavBar = ({
           </button>
         </div>
       ) : (
-        <div className="my-4 btnb">
+        <div className=" btnlogin my-4 btnb">
           <button
             type="button"
-            className="btn btn-lg "
+            className="btnlog btn btn-lg "
             style={{
               border: "none",
               color: "white",
@@ -127,9 +127,6 @@ const NavBar = ({
           </button>
         </div>
       )}
-      <span className="cartIcon">
-        <AiOutlineShoppingCart />
-      </span>
     </nav>
   );
 };

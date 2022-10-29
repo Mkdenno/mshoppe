@@ -12,3 +12,23 @@
     align-items: center;
     margin-right: 2rem;
 }
+/* .shopper h3{
+    margin-top: -3rem;
+} */
+.listlinks{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+}
+.listlinks ul{
+    margin: auto;
+}
+.listlinks ul li{
+    margin: 0 1rem ;
+}
+.navmargin{
+    margin: 0 4rem;
+}
+.btnlogin .btnlog{
+    margin-right: 1rem;
+}
