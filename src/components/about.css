@@ -4,3 +4,9 @@
     align-items: center;
     margin: auto;
 }
+.intro-about{
+    margin: 4rem 0;
+}
+.image img{
+    width:600px;
+}

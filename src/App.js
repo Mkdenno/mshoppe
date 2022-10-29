@@ -2,19 +2,15 @@ import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import { Route, Routes } from "react-router-dom";
-import SocialFollow from "./components/SocialFollow";
 
 import Navbar from "./components/Navbar";
 import Home from "./components/HomePage/Home";
-import Footer from "./components/Footer";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import About from "./components/About";
-// import Search from "./components/Search";
 
 function App() {
   const [user, setUser] = useState(null);
-  const token = localStorage.getItem("jwt");
+  // const token = localStorage.getItem("jwt");
 
   const [hideContent, setIsHideContent] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
@@ -98,8 +94,8 @@ function App() {
               />
             }
           />
-          {/* <Route exact path="/" element={<Search user={user} />} /> */}
         </Routes>
+        
       ) : (
         <Routes>
           <Route path="/login" element={<Login setUser={setUser} />} />
@@ -119,12 +115,7 @@ function App() {
           {/* <Route exact path="/search" element={<Search/>} /> */}
         </Routes>
       )}
-      <Routes>
-        <Route exact path="/about" element={<About />} />
-      </Routes>
 
-      <Footer />
-      <SocialFollow />
     </div>
   );
 }

@@ -15,3 +15,8 @@
     justify-content: space-around;
     flex-wrap: wrap;
 }
+.homethings{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

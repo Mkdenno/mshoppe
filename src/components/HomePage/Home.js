@@ -2,11 +2,19 @@ import React from "react";
 import image from "./home-image1.jpg";
 import { Link } from "react-router-dom";
 import "./home.css";
-import Amazon from "../Amazon";
-import Ebay from "../Ebay";
-export default function Home({ user, amazon, ebay, hideContent, setHideContent }) {
 
-
+import SideBar from "../SideBar";
+import { ProSidebarProvider } from 'react-pro-sidebar';
+import About from "../About";
+import Contact from "../Contact";
+import SocialFollow from "../SocialFollow";
+export default function Home({
+  user,
+  amazon,
+  ebay,
+  hideContent,
+  setHideContent,
+}) {
   const txt = {
     color: "red",
     fontWeight: "bold",
@@ -22,7 +30,7 @@ export default function Home({ user, amazon, ebay, hideContent, setHideContent }
         <div>
           <div className=" container container-fluid my-1  p-5 ">
             <span>{user.username}</span>
-            <div className="row">
+            <div className="row homethings">
               <div className="col-5 col-lg-6 pt-3">
                 <div className="font-weight-normal ">
                   <h1
@@ -41,29 +49,16 @@ export default function Home({ user, amazon, ebay, hideContent, setHideContent }
                   </p>
                 </div>
 
-                <div className="my-4 btn">
-                  <button
-                    type="button"
-                    className="btn btn-lg"
-                    style={{
-                      border: "none",
-                      color: "white",
-                      backgroundColor: "#00BFFF",
-                      fontSize: "15px",
-                      fontWeight: "900",
-                    }}
-                  >
-                    <Link to="/register" style={colorTxt}>
-                      Get Started
-                    </Link>
-                  </button>
-                </div>
               </div>
               <div className="col-7 col-lg-4 mt-3 pt-xs-4">
                 <img src={image} className="img-fluid" alt="meet -up" />
               </div>
             </div>
           </div>
+          <About />
+          <Contact/>
+          <SocialFollow />
+          
           {/* <Route path="/search" element={<Search />} /> */}
         </div>
       );
@@ -72,8 +67,8 @@ export default function Home({ user, amazon, ebay, hideContent, setHideContent }
         <div>
           <div>
             <div className=" container container-fluid my-1  p-5 ">
-              <div className="row">
-                <div className="col-5 col-lg-6 pt-3">
+              <div className="row homethings">
+                <div className="col-4 col-lg-6 pt-3">
                   <div className="font-weight-normal ">
                     <h1
                       className="display-6 pt-3 moshopper"
@@ -103,7 +98,7 @@ export default function Home({ user, amazon, ebay, hideContent, setHideContent }
                         fontWeight: "900",
                       }}
                     >
-                      <Link to="/register" style={colorTxt}>
+                      <Link to="/signup" style={colorTxt}>
                         Get Started
                       </Link>
                     </button>
@@ -114,30 +109,21 @@ export default function Home({ user, amazon, ebay, hideContent, setHideContent }
                 </div>
               </div>
             </div>
-            {/* <Search/> */}
-            {/* <Route path="/search" element={<Search />} /> */}
           </div>
+          <About/>
+          <Contact/>
+          <SocialFollow />
         </div>
       );
     }
   } else {
     return (
       <>
-        <h1 style={{marginStart: "5rem"}} >Amazon</h1>
+        <ProSidebarProvider>
+          <SideBar amazon={amazon} ebay={ebay} />
 
-        <div className="prods">
-          {amazon.map((product) => {
-            return <Amazon key={product.product_id} product={product} />;
-          })}
-        </div>
-
-        <h1 style={{marginStart: "5rem"}}>Ebay</h1>
-
-        <div className="prods">
-          {ebay.map((product) => {
-            return <Ebay key={product.product_id} product={product} />;
-          })}
-        </div>
+          
+        </ProSidebarProvider>
       </>
     );
   }
