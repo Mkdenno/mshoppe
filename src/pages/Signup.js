@@ -65,12 +65,11 @@ function Signup(setUser) {
     <>
       <div className="container signup-intro">
         <div className="registergif">
-          <h3 className="headercolor"> Please Register with us!</h3>
+          <h3 className="headercolor">  Register with us!</h3>
           <img src="./images/registerg.gif" alt="GIF" />
         </div>
         <div className="form">
           <div className="form__container">
-            <h3>Register</h3>
             <form onSubmit={handleSubmit}>
               <ul style={{ color: "red" }}>
                 <li>{errors[1]}</li>

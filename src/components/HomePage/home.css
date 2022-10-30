@@ -2,11 +2,16 @@
     font-size: 1rem;
     margin: 2rem 0;
 }
-.moshopper{
+.moshopper h1{
     margin: 2rem 0;
+    font-size: 60px;
+}
+.homepg{
+    font-size: 2em;
 }
 .btn button{
     margin-right: 1rem 0;
+    padding: 1rem 2rem;
 }
 
 .prods {

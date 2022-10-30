@@ -2,6 +2,8 @@ import "./form.css";
 import { useState } from "react";
 import { useNavigate} from "react-router-dom";
 
+
+// const url="https://protected-coast-36933.herokuapp.com"
 function Login({setUser}) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -14,6 +16,7 @@ function Login({setUser}) {
       username,
       password,
     };
+
 
     fetch("http://localhost:3000/login", {
       method: "POST",
@@ -37,7 +40,6 @@ function Login({setUser}) {
     <>
     <div className="container login-intro">
       <div className="logingif">
-        <h3 className="headercolor"> Please Login</h3>
         <img src="./images/loging.gif" alt="GIF"/>
       </div>
 

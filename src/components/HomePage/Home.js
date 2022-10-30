@@ -69,9 +69,9 @@ export default function Home({
             <div className=" container container-fluid my-1  p-5 ">
               <div className="row homethings">
                 <div className="col-4 col-lg-6 pt-3">
-                  <div className="font-weight-normal ">
+                  <div className="font-weight-normal moshopper ">
                     <h1
-                      className="display-6 pt-3 moshopper"
+                      className="display-6 pt-3 "
                       style={{ fontWeight: "bolder" }}
                     >
                       Get Your Favourite gadgets at{" "}
@@ -80,7 +80,7 @@ export default function Home({
                     </h1>
                   </div>
                   <div className="mb-3 paragraph">
-                    <p className="">
+                    <p className="homepg">
                       We have products from different sites such as Amazon,
                       Alibaba, E-bay and spotify
                     </p>
