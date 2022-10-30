@@ -34,18 +34,23 @@ function Login({setUser}) {
   };
 
   return (
-    <div className="form">
+    <>
+    <div className="container login-intro">
+      <div className="logingif">
+        <h3 className="headercolor"> Please Login</h3>
+        <img src="./images/loging.gif" alt="GIF"/>
+      </div>
+
+      <div className="form">
       <div className="form__container">
         <h3>Login</h3>
         <form onSubmit={handleSubmit}>
-          <label htmlFor="name">name:</label>
           <input
             type="text"
             id="name"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
-          <label htmlFor="password">Password:</label>
           <input
             type="password"
             id="password"
@@ -54,7 +59,7 @@ function Login({setUser}) {
           />
           <button
             type="submit"
-            className="btn btn-lg"
+            className="w-full text-center py-3 px-8 rounded bg-green-900 text-white hover:bg-green-dark focus:outline-none my-1"
             style={{
               border: "none",
               color: "white",
@@ -66,11 +71,15 @@ function Login({setUser}) {
             Login
           </button>
         </form>
-      </div>
-      <span>
+        <span className="registerloginspan">
         hava an account? please <a href="/signup">Register</a>
       </span>
+      </div>
+
     </div>
+    </div>
+    </>
+   
   );
 }
 export default Login;
