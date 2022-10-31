@@ -26,7 +26,7 @@ const NavBar = ({
     // console.log("hi")
   };
   return (
-    <nav className="navmargin navbar navbar-expand-lg ">
+    <nav className="navmargin navbar navbar-expand-lg  ">
       <div className=" container-fluid shopper">
         <div>
           <h3>

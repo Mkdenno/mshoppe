@@ -18,7 +18,7 @@ function Signup(setUser) {
       password_confirmation: passwordConfirmation,
     };
 
-    fetch("http://localhost:3000/users", {
+    fetch("http://127.0.0.1:3000/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -71,9 +71,7 @@ function Signup(setUser) {
         <div className="form">
           <div className="form__container">
             <form onSubmit={handleSubmit}>
-              <ul style={{ color: "red" }}>
-                <li>{errors[1]}</li>
-              </ul>
+
               <input
                 type="text"
                 className="block border border-grey-light w-full p-3 rounded mb-4"
@@ -82,9 +80,7 @@ function Signup(setUser) {
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder="Full Name"
               />
-              <ul style={{ color: "red" }}>
-                <li>{errors[0]}</li>
-              </ul>
+
               <input
                 type="password"
                 className="block border border-grey-light w-full p-3 rounded mb-4"
@@ -93,9 +89,7 @@ function Signup(setUser) {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Password"
               />
-              <ul style={{ color: "red" }}>
-                <li>{errors[3]}</li>
-              </ul>
+
               <input
                 type="password"
                 className="block border border-grey-light w-full p-3 rounded mb-4"
