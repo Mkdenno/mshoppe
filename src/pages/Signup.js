@@ -2,7 +2,7 @@ import "./form.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Signup(setUser) {
+function Signup({setUser}) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -18,7 +18,7 @@ function Signup(setUser) {
       password_confirmation: passwordConfirmation,
     };
 
-    fetch("http://127.0.0.1:3000/users", {
+    fetch("https://mshoppe.herokuapp.com/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -41,10 +41,16 @@ function Signup(setUser) {
         //   response.json().then((errorData) => setErrors(errorData.errors));
         //   navigate('/signup')
         // }
-        response.json().then((user) => setUser(user));
+        response.json().then((user) => {
+          console.log(user)
+        });
         navigate("/login");
       } else {
-        response.json().then((errorData) => setErrors(errorData.errors));
+        response.json().then((errorData) => {
+          console.log(errorData)
+
+          setErrors(errorData.errors)
+        });
       }
     });
     setUsername("");
