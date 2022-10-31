@@ -31,23 +31,23 @@ export default function Home({
           <div className=" container container-fluid my-1  p-5 ">
             <span>{user.username}</span>
             <div className="row homethings">
-              <div className="col-5 col-lg-6 pt-3">
-                <div className="font-weight-normal ">
-                  <h1
-                    className="display-6 pt-3 moshopper"
-                    style={{ fontWeight: "bolder" }}
-                  >
-                    Get Your Favourite gadgets at{" "}
-                    <span style={txt}>MoShopper</span>
-                    <span style={txt}> Or Order Online.</span>
-                  </h1>
-                </div>
-                <div className="mb-3 paragraph">
-                  <p className="">
-                    We have products from different sites such as Amazon,
-                    Alibaba, E-bay and spotify
-                  </p>
-                </div>
+                <div className="col-4 col-lg-6 pt-3">
+                  <div className="font-weight-normal moshopper ">
+                    <h1
+                      className="display-6 pt-3 "
+                      style={{ fontWeight: "bolder" }}
+                    >
+                      Get Your Favourite gadgets at{" "}
+                      <span style={txt}>MoShopper</span>
+                      <span style={txt}> Or Order Online.</span>
+                    </h1>
+                  </div>
+                  <div className="mb-3 paragraph">
+                    <p className="homepg">
+                      We have products from different sites such as Amazon,
+                      Alibaba, E-bay and spotify
+                    </p>
+                  </div>
 
               </div>
               <div className="col-7 col-lg-4 mt-3 pt-xs-4">
