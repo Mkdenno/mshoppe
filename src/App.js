@@ -11,6 +11,7 @@ import Signup from "./pages/Signup";
 function App() {
   const [user, setUser] = useState(null);
   // const token = localStorage.getItem("jwt");
+  console.log(user)
 
   const [hideContent, setIsHideContent] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
@@ -63,9 +64,9 @@ function App() {
 
   useEffect(() => {
     // auto-login
-    fetch("http://localhost:3000/profile").then((r) => {
+    fetch("https://mshoppe.herokuapp.com/profile").then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user));
+        r.json().then((data) => setUser(data));
       }
     });
   }, []);

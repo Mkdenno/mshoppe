@@ -29,7 +29,6 @@ export default function Home({
       return (
         <div>
           <div className=" container container-fluid my-1  p-5 ">
-            <span>{user.username}</span>
             <div className="row homethings">
                 <div className="col-4 col-lg-6 pt-3">
                   <div className="font-weight-normal moshopper ">

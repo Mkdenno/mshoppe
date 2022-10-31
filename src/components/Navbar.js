@@ -14,6 +14,8 @@ const NavBar = ({
   handleOnSubmit,
 }) => {
   const navigate = useNavigate();
+  // console.log(user.user)
+
 
   const handleLogoutButton = () => {
     setUser(null);
@@ -29,6 +31,8 @@ const NavBar = ({
     <nav className="navmargin navbar navbar-expand-lg  ">
       <div className=" container-fluid shopper">
         <div>
+        {/* <span className="username">{user.user}</span> */}
+
           <h3>
             <span className="  text-danger">MoS</span>hopper
           </h3>
