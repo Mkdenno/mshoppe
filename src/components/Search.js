@@ -2,6 +2,18 @@ import React from "react";
 import "./search.css";
 
 const Search = () => {
+  function handleSubmit(e) {
+    e.preventDefault();
+    fetch(`http://localhost:9292/user${name}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      }
+    })
+      .then((res) => res.json())
+      .then((newUser) => UpdateReview(newUser.id));
+    window.location.href = "/review";
+  }
   return (
     <>
     <section id="services" className="services">

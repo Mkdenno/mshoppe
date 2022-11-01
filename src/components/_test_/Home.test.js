@@ -1,6 +1,6 @@
-import {render, screen, cleanup} from "@testing-library/react"
-// import HomePage from '../HomePage'
+// import {render, screen, cleanup} from "@testing-library/react"
+import {Home} from "../HomePage";
 
-test('test',() => {
+test('Home',() => {
     expect(true).toBe(true);
 })

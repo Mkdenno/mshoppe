@@ -3,6 +3,7 @@ import image from "./home-image1.jpg";
 import { Link } from "react-router-dom";
 import './home.css';
 export default function Home({ user }) {
+  /**functional component */
   const txt = {
     color: "red",
     fontWeight: "bold",
@@ -13,11 +14,11 @@ export default function Home({ user }) {
   };
   return (
     <div>
-      <div className=" container container-fluid my-1  p-5 ">
-        <div className="row">
+      <div className=" container container-fluid my-1  p-5  " id="home">
+        <div className="row" id="home">
           <div className="col-5 col-lg-6 pt-3">
             <div className="font-weight-normal ">
-              <h1 className="display-6 pt-3 moshopper" style={{ fontWeight: "bolder" }}>
+              <h1 className="display-6 pt-3 moshopper" style={{ fontWeight: "bolder" }} data-testid='test'>
                 Get Your Favourite gadgets at <span style={txt}>MoShopper</span>
                 <span style={txt}> Or Order Online.</span>
               </h1>
@@ -52,3 +53,4 @@ export default function Home({ user }) {
     </div>
   );
 }
+ 

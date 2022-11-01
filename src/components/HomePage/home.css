@@ -8,3 +8,9 @@
 .btn button{
     margin-right: 1rem 0;
 }
+@media only screen and (max-width:760px) {
+    #home{
+        display: flex;
+        flex-direction: column;
+    }
+}
