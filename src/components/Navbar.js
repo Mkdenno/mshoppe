@@ -48,11 +48,7 @@ const NavBar = ({
                 Home
                 </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#search">
-                Services
-              </a>
-            </li>
+
             <li className="nav-item">
               <a className="nav-link" href="#about">
                 About Us
@@ -64,11 +60,11 @@ const NavBar = ({
               </a>
             </li>
           </ul>
-          <form className="d-flex" role="search" onSubmit={handleOnSubmit}>
+          <form className="d-flex inputfom" role="search"  onSubmit={handleOnSubmit}>
             <input
               className="form-control me-2"
               type="search"
-              placeholder="Search"
+              placeholder="Search by product name..."
               aria-label="Search"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}

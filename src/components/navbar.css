@@ -30,3 +30,6 @@
 .username{
     color: red;
 }
+.inputfom input{
+    width: 500px;
+}
