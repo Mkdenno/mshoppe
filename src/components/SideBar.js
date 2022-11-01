@@ -43,20 +43,20 @@ const SideBar = ({ amazon, ebay, walmat }) => {
             <MenuItem onClick={handleOnClickAmazon}>
               <span>Amazon</span>{" "}
               <span className="badge text-bg-secondary">
-                {amazonData.length}
+                {amazon.length}
               </span>{" "}
             </MenuItem>
             <MenuItem onClick={handleOnClickEbay}>
-              {" "}
-              <span>Ebay</span>{" "}
-              <span className="badge text-bg-secondary">{ebayData.length}</span>{" "}
+              
+              <span>Ebay</span>
+              <span className="badge text-bg-secondary">{ebay.length}</span>{" "}
             </MenuItem>
             <MenuItem onClick={handleOnClickWalmat}>
-              {" "}
-              <span>Walmat</span>{" "}
+             
+              <span>Walmat</span>
               <span className="badge text-bg-secondary">
-                {walmatData.length}
-              </span>{" "}
+                {walmat.length}
+              </span>
             </MenuItem>
           </Menu>
         </Sidebar>
@@ -64,7 +64,7 @@ const SideBar = ({ amazon, ebay, walmat }) => {
           {showAmazon && <h1>Amazon</h1>}
           <div className="prods">
             {showAmazon &&
-              amazonData.map((product) => {
+              amazon.map((product) => {
                 return <Amazon key={product.product_id} product={product} />;
               })}
           </div>
@@ -86,7 +86,7 @@ const SideBar = ({ amazon, ebay, walmat }) => {
           </div>
         </main>
       </div>
-      ;
+      
     </>
   );
 };

@@ -12,9 +12,12 @@ const NavBar = ({
   searchTerm,
   setSearchTerm,
   handleOnSubmit,
+  setIsHideContent
 }) => {
   const navigate = useNavigate();
   // console.log(user.user)
+
+  const onNavClick = () => { setIsHideContent(true)}
 
 
   const handleLogoutButton = () => {
@@ -44,7 +47,7 @@ const NavBar = ({
         >
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link" href="#home">
+              <a className="nav-link" href="#home" onClick={onNavClick}>
                 Home
                 </a>
             </li>

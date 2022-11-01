@@ -22,7 +22,7 @@ function App() {
   const amazonOptions = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "eed9ec38e6mshf2212035b9daf72p1f530bjsn578e6c952838",
+      "X-RapidAPI-Key": "3a09997154mshdb65d31a5cde41ap190d7fjsnea9c713c47d7",
       "X-RapidAPI-Host": "amazon23.p.rapidapi.com",
     },
   };
@@ -43,7 +43,7 @@ function App() {
   const walmartoptions = {
     method : "GET",
     headers: {
-      'X-RapidAPI-Key': '5970fc4886msh928284f8d99bbbfp184ca1jsn8771bf837182',
+      'X-RapidAPI-Key': '3a09997154mshdb65d31a5cde41ap190d7fjsnea9c713c47d7',
       'X-RapidAPI-Host': 'axesso-walmart-data-service.p.rapidapi.com'
     }
   };
@@ -56,6 +56,7 @@ function App() {
       .then((res) => res.json())
       .then((data) => {
         setAmazon(data.result);
+        // console.log(data.result)
       }).catch((err) => console.log(err));
 
     fetch(
@@ -65,6 +66,7 @@ function App() {
       .then((res) => res.json())
       .then((data) => {
         setEbay(data);
+        // console.log(data)
       });
 
       fetch(`https://axesso-walmart-data-service.p.rapidapi.com/wlm/walmart-search-by-keyword?keyword=${searchTerm}&page=1&sortBy=best_match`,
@@ -103,6 +105,7 @@ function App() {
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
         handleOnSubmit={handleOnSubmit}
+        setIsHideContent={setIsHideContent}
       />
       {user ? (
         <Routes>
