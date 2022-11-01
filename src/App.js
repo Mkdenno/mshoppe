@@ -17,14 +17,20 @@ function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [amazon, setAmazon] = useState([]);
   const [ebay, setEbay] = useState([]);
+  const [walmat, setWalmat] = useState([]);
 
   const amazonOptions = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "5970fc4886msh928284f8d99bbbfp184ca1jsn8771bf837182",
+      "X-RapidAPI-Key": "eed9ec38e6mshf2212035b9daf72p1f530bjsn578e6c952838",
       "X-RapidAPI-Host": "amazon23.p.rapidapi.com",
     },
   };
+
+  // headers: {
+	// 	'X-RapidAPI-Key': 'eed9ec38e6mshf2212035b9daf72p1f530bjsn578e6c952838',
+	// 	'X-RapidAPI-Host': 'amazon23.p.rapidapi.com'
+	// }
 
   const ebayOptions = {
     method: "GET",
@@ -32,6 +38,14 @@ function App() {
       "X-RapidAPI-Key": "32f8f29c8bmsh4f427a649a705d0p15fff3jsn83663d512f81",
       "X-RapidAPI-Host": "ebay-data-scraper.p.rapidapi.com",
     },
+  };
+
+  const walmartoptions = {
+    method : "GET",
+    headers: {
+      'X-RapidAPI-Key': '5970fc4886msh928284f8d99bbbfp184ca1jsn8771bf837182',
+      'X-RapidAPI-Host': 'axesso-walmart-data-service.p.rapidapi.com'
+    }
   };
 
   const getProducts = () => {
@@ -42,7 +56,6 @@ function App() {
       .then((res) => res.json())
       .then((data) => {
         setAmazon(data.result);
-        console.log(data.result);
       }).catch((err) => console.log(err));
 
     fetch(
@@ -52,9 +65,20 @@ function App() {
       .then((res) => res.json())
       .then((data) => {
         setEbay(data);
-        console.log(data);
       });
-  };
+
+      fetch(`https://axesso-walmart-data-service.p.rapidapi.com/wlm/walmart-search-by-keyword?keyword=${searchTerm}&page=1&sortBy=best_match`,
+      walmartoptions)
+
+      .then((res) => res.json())
+      .then((data) => {
+        setWalmat(data.item.props.pageProps.initialData.searchResult.itemStacks[0].items);
+         console.log(data.item.props.pageProps.initialData.searchResult.itemStacks[0].items)
+
+      });
+    
+  
+    };
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
@@ -90,6 +114,7 @@ function App() {
                 user={user}
                 amazon={amazon}
                 ebay={ebay}
+                walmat={walmat}
                 hideContent={hideContent}
                 setHideContent={setIsHideContent}
               />
@@ -108,6 +133,7 @@ function App() {
               <Home
                 amazon={amazon}
                 ebay={ebay}
+                walmat={walmat}
                 hideContent={hideContent}
                 setHideContent={setIsHideContent}
               />
