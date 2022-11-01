@@ -12,6 +12,7 @@ export default function Home({
   user,
   amazon,
   ebay,
+  walmat,
   hideContent,
   setHideContent,
 }) {
@@ -119,7 +120,7 @@ export default function Home({
     return (
       <>
         <ProSidebarProvider>
-          <SideBar amazon={amazon} ebay={ebay} />
+          <SideBar amazon={amazon} ebay={ebay} walmat={walmat}/>
 
           
         </ProSidebarProvider>
