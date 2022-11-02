@@ -11,13 +11,14 @@ import Signup from "./pages/Signup";
 function App() {
   const [user, setUser] = useState(null);
   // const token = localStorage.getItem("jwt");
-  console.log(user)
+  console.log(user);
 
   const [hideContent, setIsHideContent] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [amazon, setAmazon] = useState([]);
   const [ebay, setEbay] = useState([]);
   const [walmat, setWalmat] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const amazonOptions = {
     method: "GET",
@@ -26,11 +27,6 @@ function App() {
       "X-RapidAPI-Host": "amazon23.p.rapidapi.com",
     },
   };
-
-  // headers: {
-	// 	'X-RapidAPI-Key': 'eed9ec38e6mshf2212035b9daf72p1f530bjsn578e6c952838',
-	// 	'X-RapidAPI-Host': 'amazon23.p.rapidapi.com'
-	// }
 
   const ebayOptions = {
     method: "GET",
@@ -41,11 +37,11 @@ function App() {
   };
 
   const walmartoptions = {
-    method : "GET",
+    method: "GET",
     headers: {
-      'X-RapidAPI-Key': '3a09997154mshdb65d31a5cde41ap190d7fjsnea9c713c47d7',
-      'X-RapidAPI-Host': 'axesso-walmart-data-service.p.rapidapi.com'
-    }
+      "X-RapidAPI-Key": "3a09997154mshdb65d31a5cde41ap190d7fjsnea9c713c47d7",
+      "X-RapidAPI-Host": "axesso-walmart-data-service.p.rapidapi.com",
+    },
   };
 
   const getProducts = () => {
@@ -56,8 +52,11 @@ function App() {
       .then((res) => res.json())
       .then((data) => {
         setAmazon(data.result);
+        setIsLoading(false);
+
         // console.log(data.result)
-      }).catch((err) => console.log(err));
+      })
+      .catch((err) => console.log(err));
 
     fetch(
       `https://ebay-data-scraper.p.rapidapi.com/products?page_number=1&product_name=${searchTerm}%20ink&country=canada`,
@@ -69,22 +68,25 @@ function App() {
         // console.log(data)
       });
 
-      fetch(`https://axesso-walmart-data-service.p.rapidapi.com/wlm/walmart-search-by-keyword?keyword=${searchTerm}&page=1&sortBy=best_match`,
-      walmartoptions)
-
+    fetch(
+      `https://axesso-walmart-data-service.p.rapidapi.com/wlm/walmart-search-by-keyword?keyword=${searchTerm}&page=1&sortBy=best_match`,
+      walmartoptions
+    )
       .then((res) => res.json())
       .then((data) => {
-        setWalmat(data.item.props.pageProps.initialData.searchResult.itemStacks[0].items);
-         console.log(data.item.props.pageProps.initialData.searchResult.itemStacks[0].items)
-
+        setWalmat(
+          data.item.props.pageProps.initialData.searchResult.itemStacks[0].items
+        );
+        console.log(
+          data.item.props.pageProps.initialData.searchResult.itemStacks[0].items
+        );
       });
-    
-  
-    };
+  };
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    setIsHideContent(false)
+    setIsHideContent(false);
+    setIsLoading(true);
     getProducts();
   };
 
@@ -120,11 +122,12 @@ function App() {
                 walmat={walmat}
                 hideContent={hideContent}
                 setHideContent={setIsHideContent}
+                isLoading={isLoading}
+                setIsLoading={setIsLoading}
               />
             }
           />
         </Routes>
-        
       ) : (
         <Routes>
           <Route path="/login" element={<Login setUser={setUser} />} />
@@ -139,13 +142,13 @@ function App() {
                 walmat={walmat}
                 hideContent={hideContent}
                 setHideContent={setIsHideContent}
+                isLoading={isLoading}
+                setIsLoading={setIsLoading}
               />
             }
           />
-          {/* <Route exact path="/search" element={<Search/>} /> */}
         </Routes>
       )}
-
     </div>
   );
 }

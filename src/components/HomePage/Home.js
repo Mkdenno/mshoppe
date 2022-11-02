@@ -15,6 +15,8 @@ export default function Home({
   walmat,
   hideContent,
   setHideContent,
+  isLoading,
+  setIsLoading,
 }) {
   const txt = {
     color: "red",
@@ -29,33 +31,36 @@ export default function Home({
     if (user) {
       return (
         <div>
-          <div className="container">
-            <div className="row ">
-              <div className="col-md-6">
-                <div className=" moshopper ">
-                  <h1 className="display-6" style={{ fontWeight: "bolder" }}>
-                    Get Your Favourite gadgets at{" "}
-                    <span style={txt}>MoShopper</span>
-                    <span style={txt}> Or Order Online.</span>
-                  </h1>
+          <div>
+            <div className=" container">
+              <div className="row">
+                <div className="col-md-6">
+                  <div className="font-weight-normal moshopper ">
+                    <h1
+                      className="display-6 pt-3 "
+                      style={{ fontWeight: "bolder" }}
+                    >
+                      Get Your Favourite gadgets at{" "}
+                      <span style={txt}>MoShopper</span>
+                      <span style={txt}> Or Order Online.</span>
+                    </h1>
+                  </div>
+                  <div className="mb-3 paragraph">
+                    <p className="homepg">
+                      We have products from different sites such as Amazon,
+                      Alibaba, E-bay and spotify
+                    </p>
+                  </div>
                 </div>
-                <div className="paragraph">
-                  <p className="homepg">
-                    We have products from different sites such as Amazon,
-                    Alibaba, E-bay and spotify
-                  </p>
+                <div className="col-md-6 mt-3 p-5">
+                  <img src={image} className="img-fluid" alt="meet -up" />
                 </div>
-              </div>
-              <div className="col-md-6">
-                <img src={image} alt="meet -up" />
               </div>
             </div>
           </div>
           <About />
           <Contact />
           <SocialFollow />
-
-          {/* <Route path="/search" element={<Search />} /> */}
         </div>
       );
     } else {
@@ -106,7 +111,13 @@ export default function Home({
     return (
       <>
         <ProSidebarProvider>
-          <SideBar amazon={amazon} ebay={ebay} walmat={walmat} />
+          <SideBar
+            amazon={amazon}
+            ebay={ebay}
+            walmat={walmat}
+            isLoading={isLoading}
+            setIsLoading={setIsLoading}
+          />
         </ProSidebarProvider>
       </>
     );

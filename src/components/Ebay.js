@@ -3,7 +3,7 @@ import "./search.css"
 
 function Ebay({product}) {
 
-  const { name, thumbnail, price } = product;
+  const { name, thumbnail, price,link } = product;
   return (
     <>
       <div className="card-product card">
@@ -13,7 +13,7 @@ function Ebay({product}) {
 
           <p>Price: {price}</p>
           <div className="searchbtn">
-            <button>ORDER</button>
+          <a href={link} _target>ORDER</a>
           </div>
         </div>
 

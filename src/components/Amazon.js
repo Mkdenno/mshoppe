@@ -2,7 +2,7 @@ import React from "react";
 import "./search.css";
 
 const Amazon = ({ product }) => {
-  const { title, thumbnail, price, reviews } = product;
+  const { title, thumbnail, price, reviews, url } = product;
   return (
     <>
       <div className="card-product card">
@@ -13,7 +13,7 @@ const Amazon = ({ product }) => {
           <p >Price: {price.current_price}</p>
           <p >Rating: {reviews.rating}</p>
           <div className="searchbtn">
-            <button>ORDER</button>
+            <a href={url} _target>ORDER</a>
           </div>
         </div>
 
