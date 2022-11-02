@@ -35,7 +35,7 @@ function App() {
   const ebayOptions = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "32f8f29c8bmsh4f427a649a705d0p15fff3jsn83663d512f81",
+      "X-RapidAPI-Key": "dc78779a39mshb82d92679ac254dp10cf89jsn130914269d42",
       "X-RapidAPI-Host": "ebay-data-scraper.p.rapidapi.com",
     },
   };
