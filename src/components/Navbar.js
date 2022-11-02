@@ -12,29 +12,23 @@ const NavBar = ({
   searchTerm,
   setSearchTerm,
   handleOnSubmit,
-  setIsHideContent
+  setIsHideContent,
 }) => {
   const navigate = useNavigate();
-  // console.log(user.user)
 
-  const onNavClick = () => { setIsHideContent(true)}
-
+  const onNavClick = () => {
+    setIsHideContent(true);
+  };
 
   const handleLogoutButton = () => {
     setUser(null);
     navigate("/");
-    // fetch("/logout", { method: "DELETE" }).then((r) => {
-    //   if (r.ok) {
-    //     setUser(null);
-    //   }
-    // });
-    // console.log("hi")
+ 
   };
   return (
     <nav className="navmargin navbar navbar-expand-lg  ">
-      <div className=" container-fluid shopper">
+      <div className=" container container-fluid shopper">
         <div>
-        {/* <span className="username">{user.user}</span> */}
 
           <h3>
             <span className="  text-danger">MoS</span>hopper
@@ -49,7 +43,7 @@ const NavBar = ({
             <li className="nav-item">
               <a className="nav-link" href="#home" onClick={onNavClick}>
                 Home
-                </a>
+              </a>
             </li>
 
             <li className="nav-item">
@@ -63,7 +57,11 @@ const NavBar = ({
               </a>
             </li>
           </ul>
-          <form className="d-flex inputfom" role="search"  onSubmit={handleOnSubmit}>
+          <form
+            className="d-flex inputfom"
+            role="search"
+            onSubmit={handleOnSubmit}
+          >
             <input
               className="form-control me-2"
               type="search"
@@ -96,38 +94,14 @@ const NavBar = ({
           </button>
         </div>
       ) : (
-        <div className=" btnlogin my-4 btnb">
-          <button
-            type="button"
-            className="btnlog btn btn-lg "
-            style={{
-              border: "none",
-              color: "white",
-              backgroundColor: "#00BFFF",
-              fontSize: "15px",
-              fontWeight: "900",
-            }}
-          >
-            <Link to="/login" style={colorTxt}>
-              Login
-            </Link>
-          </button>
+        <div>
+          <Link to="/signup" style={colorTxt} >
 
-          <button
-            type="button"
-            className="btn btn-lg"
-            style={{
-              border: "none",
-              color: "white",
-              backgroundColor: "#00BFFF",
-              fontSize: "15px",
-              fontWeight: "900",
-            }}
-          >
-            <Link to="/signup" style={colorTxt}>
-              Register
-            </Link>
-          </button>
+            <button className="btnnavbar">
+            Get Started
+            </button>
+            
+          </Link>
         </div>
       )}
     </nav>

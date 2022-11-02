@@ -9,9 +9,14 @@
 .homepg{
     font-size: 2em;
 }
-.btn button{
+.getbutton{
     margin-right: 1rem 0;
     padding: 1rem 2rem;
+    border: none;
+    color: white;
+    background-color: #00BFFF;
+    font-size: 15px;
+    font-weight: 900;
 }
 
 .prods {
@@ -20,8 +25,27 @@
     justify-content: space-around;
     flex-wrap: wrap;
 }
-.homethings{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+
+/* media queris */
+@media  only screen and (max-width:760px){
+    .moshopper h1{
+        margin: 1rem 0;
+        font-size: 30px;
+        text-align: center;
+    }
+    .homepg{
+        font-size: 1em;
+        text-align: center;
+        margin: 1rem 3rem;
+    }
+     .getbutton{
+        margin-right: 0;
+        padding: 10px ;
+        border: none;
+        color: white;
+        background-color: #00BFFF;
+        font-size: 10px;
+        font-weight: 900;
+    }
 }

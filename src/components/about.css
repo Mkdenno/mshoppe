@@ -1,14 +1,11 @@
 .aboutus {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: auto;
+
 }
 .intro-about{
     margin: 4rem 0;
 }
 .image img{
-    width:600px;
+    width:100%;
 }
 .About h1{
 font-size: 60px;
@@ -16,3 +13,18 @@ font-size: 60px;
 .About p{
     font-size: 25px;
     }
+
+    @media  only screen and (max-width:760px){
+        .image img{
+            width:100%;
+            display: none;
+        }
+        .About h1{
+            font-size: 30px;
+            }
+
+            .About p{
+                font-size: 1em;
+            }
+
+}
