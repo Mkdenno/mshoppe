@@ -39,11 +39,12 @@ function Login({setUser}) {
   return (
     <>
     <div className="container login-intro">
-      <div className="logingif">
+    <div className="row">
+      <div className="logingif col-md-5">
         <img src="./images/loging.gif" alt="GIF"/>
       </div>
 
-      <div className="form">
+      <div className="form col-md-7">
       <div className="form__container">
         <h3>Login</h3>
         <form onSubmit={handleSubmit}>
@@ -78,6 +79,7 @@ function Login({setUser}) {
       </span>
       </div>
 
+    </div>
     </div>
     </div>
     </>

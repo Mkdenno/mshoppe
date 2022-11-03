@@ -27,20 +27,9 @@ function Signup({setUser}) {
         user: inputData,
       }),
     }).then((response) => {
-      //  if(r.ok){
-      //   r.json()
-      //   .then((user)=> setUser(user))
-      //  }
+
       if (response.ok) {
-        //   response.json().then((user) => {
-        //     console.log(user);
-        // navigate('/login');
-        //     // localStorage.setItem("jwt",user.jwt);
-        //   });
-        // } else {
-        //   response.json().then((errorData) => setErrors(errorData.errors));
-        //   navigate('/signup')
-        // }
+
         response.json().then((user) => {
           console.log(user)
         });
@@ -70,11 +59,12 @@ function Signup({setUser}) {
   return (
     <>
       <div className="container signup-intro">
-        <div className="registergif">
+        <div className="row">
+        <div className="registergif col-md-5" >
           <h3 className="headercolor">  Register with us!</h3>
           <img src="./images/registerg.gif" alt="GIF" />
         </div>
-        <div className="form">
+        <div className="form col-md-7">
           <div className="form__container">
             <form onSubmit={handleSubmit}>
 
@@ -124,7 +114,8 @@ function Signup({setUser}) {
             </span>
           </div>
         </div>
-      </div>
+        </div>
+        </div>
     </>
   );
 }
