@@ -15,7 +15,7 @@ const Walmat = ({ product }) => {
           <p>Price: {price}</p>
           <p>Rating: {rating.averageRating}</p>
           <div className="searchbtn">
-            <a href={URL} _target>
+            <a href={URL} target='_blank'>
               ORDER
             </a>
           </div>

@@ -13,7 +13,7 @@ function Ebay({product}) {
 
           <p>Price: {price}</p>
           <div className="searchbtn">
-          <a href={link} _target>ORDER</a>
+          <a href={link} target='_blank'>ORDER</a>
           </div>
         </div>
 

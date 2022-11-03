@@ -13,7 +13,7 @@ const Amazon = ({ product }) => {
           <p >Price: {price.current_price}</p>
           <p >Rating: {reviews.rating}</p>
           <div className="searchbtn">
-            <a href={url} _target>ORDER</a>
+            <a  href={url} target='_blank'  >ORDER</a>
           </div>
         </div>
 
