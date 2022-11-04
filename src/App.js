@@ -23,7 +23,7 @@ function App() {
   const amazonOptions = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "dc78779a39mshb82d92679ac254dp10cf89jsn130914269d42",
+      "X-RapidAPI-Key": "8d3b4458f1msh19bce8687b0aea4p196b80jsn0ce4832292e7",
       "X-RapidAPI-Host": "amazon23.p.rapidapi.com",
     },
   };
