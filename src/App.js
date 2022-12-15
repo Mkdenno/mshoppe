@@ -45,18 +45,18 @@ function App() {
   };
 
   const getProducts = () => {
-    fetch(
-      `https://amazon23.p.rapidapi.com/product-search?query=${searchTerm}&country=US`,
-      amazonOptions
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setAmazon(data.result);
-        setIsLoading(false);
+    // fetch(
+    //   `https://amazon23.p.rapidapi.com/product-search?query=${searchTerm}&country=US`,
+    //   amazonOptions
+    // )
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     setAmazon(data.result);
+    //     setIsLoading(false);
 
-        // console.log(data.result)
-      })
-      .catch((err) => console.log(err));
+    //     // console.log(data.result)
+    //   })
+    //   .catch((err) => console.log(err));
 
     fetch(
       `https://ebay-data-scraper.p.rapidapi.com/products?page_number=1&product_name=${searchTerm}%20ink&country=canada`,
